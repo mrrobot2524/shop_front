@@ -1,0 +1,43 @@
+.wrapper {
+	@apply flex flex-col w-full flex-1 mt-6;
+
+	> .navigation {
+		@apply flex flex-col w-full space-y-2;
+
+		.route {
+			@apply flex items-center gap-x-3 text-slate-600 text-sm font-medium py-3 px-4 rounded-xl
+               bg-transparent transition-all duration-300 ease-in-out shadow-sm
+               hover:bg-gradient-to-r hover:from-blue-100/50 hover:to-blue-200/50
+               hover:text-blue-600 hover:shadow-lg cursor-pointer transform hover:scale-105;
+
+			/* Иконка */
+			> svg {
+				@apply w-5 h-5 text-slate-400 transition-all duration-300;
+			}
+
+			&:hover > svg {
+				@apply scale-125 text-blue-500;
+			}
+
+			/* Левый индикатор активного пункта */
+			&.active::before {
+				content: '';
+				@apply block w-1 h-full bg-blue-500 rounded-l-xl mr-3;
+			}
+
+			/* Активный пункт */
+			&.active {
+				@apply text-blue-700 font-semibold bg-gradient-to-r from-blue-200/50 to-blue-300/50 shadow-xl;
+			}
+
+			/* Мягкая анимация текста */
+			> span {
+				@apply transition-all duration-300;
+			}
+
+			&:hover > span {
+				@apply translate-x-1 text-blue-600;
+			}
+		}
+	}
+}

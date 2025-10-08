@@ -1,0 +1,19 @@
+.wrapper {
+	@apply my-6;
+
+	> .header {
+		@apply flex items-center justify-between mb-4;
+
+		> h1 {
+			@apply text-2xl font-bold text-orange-600; /* дружелюбный цвет */
+		}
+
+		svg {
+			@apply w-4 h-4 mr-2 text-orange-500 transition-colors duration-300;
+		}
+
+		svg:hover {
+			@apply text-orange-600; /* hover эффект для иконки */
+		}
+	}
+}

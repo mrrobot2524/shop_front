@@ -1,0 +1,144 @@
+.wrapper {
+	@apply min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden;
+}
+
+/* Левая колонка с живым градиентом и анимацией частиц */
+.left {
+	@apply h-full hidden lg:flex items-center justify-center bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 relative overflow-hidden animate-gradient-bg;
+}
+
+.left::before {
+	content: '';
+	@apply absolute w-72 h-72 bg-white opacity-10 rounded-full animate-pulse-slow;
+}
+
+/* Правая колонка */
+.right {
+	@apply h-full flex flex-col items-center justify-center bg-gray-50;
+
+	.card {
+		@apply border rounded-3xl shadow-2xl p-8 flex flex-col items-center justify-center
+      w-[380px] bg-white transition-transform transform hover:scale-105 hover:-translate-y-1 hover:rotate-1 duration-500 backdrop-blur-sm;
+
+		/* Анимация появления */
+		@apply opacity-0 animate-fade-in;
+
+		.header {
+			@apply text-center pb-5;
+
+			h3 {
+				@apply pb-2 text-3xl font-extrabold text-gray-800 tracking-tight;
+			}
+		}
+
+		.content {
+			@apply p-0 w-full;
+
+			form {
+				@apply space-y-6;
+
+				input {
+					@apply w-full px-4 py-3 border rounded-xl border-gray-300 shadow-sm
+            focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500
+            transition-all duration-500;
+				}
+
+				button {
+					@apply w-full bg-gradient-to-r from-blue-500 to-indigo-600
+            hover:from-indigo-600 hover:to-blue-500 text-white font-semibold py-3 rounded-xl
+            shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105;
+
+					> svg {
+						@apply w-5 h-5 mr-3 text-white transition-transform duration-300;
+					}
+
+					&:hover > svg {
+						@apply scale-110 rotate-12;
+					}
+				}
+			}
+
+			.social {
+				@apply space-y-4 w-full mt-6;
+
+				button {
+					@apply w-full flex items-center justify-center bg-gray-100 hover:bg-gray-200
+            text-gray-800 font-medium py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
+
+					> svg {
+						@apply w-5 h-5 mr-3 text-gray-600 animate-bounce-slow;
+					}
+				}
+			}
+		}
+
+		.footer {
+			@apply p-0 mt-5 text-sm text-gray-500 text-center;
+
+			button {
+				@apply ml-1 text-sky-600 hover:text-sky-700 font-medium transition-colors;
+			}
+		}
+	}
+}
+
+/* Градиент и движение фона */
+@keyframes gradient-bg {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.animate-gradient-bg {
+	background-size: 400% 400%;
+	animation: gradient-bg 15s ease infinite;
+}
+
+/* Плавное появление карточки */
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.animate-fade-in {
+	animation: fade-in 1s ease forwards;
+}
+
+/* Дополнительные микро-анимации */
+@keyframes pulse-slow {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.1;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.15;
+	}
+}
+.animate-pulse-slow {
+	animation: pulse-slow 6s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-4px);
+	}
+}
+.animate-bounce-slow {
+	animation: bounce-slow 2s ease-in-out infinite;
+}

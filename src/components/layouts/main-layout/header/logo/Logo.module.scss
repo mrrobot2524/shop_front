@@ -1,0 +1,13 @@
+.logo {
+	@apply flex items-center gap-x-3 hover:opacity-80 transition-opacity duration-300 cursor-pointer;
+
+	> div {
+		@apply text-2xl font-bold text-blue-600 relative;
+		@apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600;
+		@apply drop-shadow-md transition-transform duration-300;
+	}
+
+	&:hover > div {
+		@apply scale-105;
+	}
+}

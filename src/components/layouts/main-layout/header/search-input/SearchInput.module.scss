@@ -1,0 +1,57 @@
+.form {
+	@apply flex items-center relative w-full overflow-hidden;
+
+	input {
+		@apply rounded-lg rounded-r-none pr-12 py-4 w-full
+      border border-gray-300 text-gray-800 placeholder-gray-400
+      bg-white shadow-sm hover:shadow-md
+      focus:outline-none focus:ring-4 focus:ring-blue-400 focus:border-blue-500
+      transition-all duration-500 ease-in-out;
+
+		&::placeholder {
+			color: #6b7280; /* серый более мягкий, modern gray */
+			transition: all 0.3s;
+		}
+
+		&:focus::placeholder {
+			color: transparent;
+		}
+
+		&:hover {
+			@apply ring-2 ring-indigo-300; /* мягкий светло-синий */
+			background-color: #f0f9ff; /* очень светлый голубой */
+		}
+	}
+
+	button {
+		@apply rounded-l-none flex items-center justify-center py-4 px-5
+      bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+      bg-[length:200%_100%] bg-left animate-gradient-x
+      text-white font-semibold shadow-lg hover:shadow-2xl
+      transition-all duration-300 transform hover:-translate-y-0.5;
+
+		> svg {
+			@apply w-6 h-6 text-white transition-transform duration-300;
+		}
+
+		&:hover > svg {
+			@apply scale-110 rotate-12;
+		}
+	}
+}
+
+/* Tailwind @keyframes для движения градиента */
+@keyframes gradient-x {
+	0% {
+		background-position: left;
+	}
+	50% {
+		background-position: right;
+	}
+	100% {
+		background-position: left;
+	}
+}
+.animate-gradient-x {
+	animation: gradient-x 3s ease infinite;
+}

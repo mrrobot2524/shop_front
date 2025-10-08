@@ -1,0 +1,37 @@
+.section {
+	@apply flex flex-col items-center text-center px-6 pt-0 pb-0;
+
+	> .heading {
+		@apply text-2xl md:text-3xl font-bold tracking-tight text-gray-900;
+
+		> span {
+			@apply text-blue-600;
+		}
+	}
+
+	> .description {
+		@apply text-sm md:text-base text-gray-700 max-w-lg;
+		line-height: 1.4;
+		margin: 0;
+	}
+
+	button {
+		@apply bg-blue-600 text-white font-semibold rounded-lg px-5 py-2 shadow-md transition-all duration-300 transform;
+
+		> svg {
+			@apply w-4 h-4 ml-1 transition-transform duration-300;
+		}
+
+		&:hover {
+			@apply bg-blue-700 shadow-lg scale-105;
+
+			> svg {
+				@apply ml-2 rotate-12;
+			}
+		}
+	}
+}
+
+.best-sellers {
+	@apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-0;
+}

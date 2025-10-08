@@ -1,0 +1,22 @@
+.header {
+	@apply p-6 gap-x-4 h-full flex items-center bg-white border-b
+         shadow-sm sticky top-0 z-50 transition-all duration-300;
+
+	/* Лёгкий hover эффект для всей шапки */
+	&:hover {
+		@apply shadow-md;
+	}
+
+	> .header_menu {
+		@apply flex items-center gap-x-4 ml-auto;
+
+		img {
+			@apply rounded-full w-10 h-10 object-cover
+             transition-transform duration-300 shadow-sm hover:shadow-md hover:scale-105;
+		}
+
+		button {
+			@apply p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300;
+		}
+	}
+}

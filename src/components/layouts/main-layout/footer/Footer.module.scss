@@ -1,0 +1,24 @@
+.wrapper {
+	@apply mt-16 border-t border-gray-200 bg-gray-50;
+
+	> .footer {
+		@apply mx-auto py-10 px-5 text-gray-700 max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left;
+
+		> .column {
+			@apply flex flex-col gap-3;
+
+			> h3 {
+				@apply font-bold text-lg mb-2 text-gray-900 tracking-wide; /* чуть больше пространство между буквами */
+			}
+
+			> a {
+				@apply text-gray-600 hover:text-green-600 transition-colors duration-300 hover:underline; /* плавное подчеркивание при hover */
+			}
+		}
+
+		> .bottom {
+			@apply col-span-full mt-6 border-t border-gray-300 pt-4 text-sm text-gray-500 text-center;
+			@apply tracking-wide; /* немного лучше читается */
+		}
+	}
+}
