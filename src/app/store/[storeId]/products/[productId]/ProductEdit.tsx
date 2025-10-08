@@ -13,17 +13,28 @@ import { ProductForm } from '../ProductForm'
 export function ProductEdit() {
 	const params = useParams<{ productId: string }>()
 
-	const { data } = useQuery({
-		queryKey: ['get product'],
+	// Получаем продукт
+	const { data: product, isLoading: isProductLoading } = useQuery({
+		queryKey: ['product', params.productId],
 		queryFn: () => productService.getById(params.productId)
 	})
 
 	const { categories } = useGetCategories()
 	const { colors } = useGetColors()
 
+	// Пока продукт загружается
+	if (isProductLoading) {
+		return <div>Loading product...</div>
+	}
+
+	// Если продукта нет
+	if (!product) {
+		return <div>Product not found</div>
+	}
+
 	return (
 		<ProductForm
-			product={data}
+			product={product} // TypeScript знает, что это точно IProduct
 			categories={categories || []}
 			colors={colors || []}
 		/>
