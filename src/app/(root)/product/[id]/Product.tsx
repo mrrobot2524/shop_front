@@ -31,6 +31,11 @@ export function Product({
 		enabled: !!id
 	})
 
+	// Если product вдруг null, рендерим fallback
+	if (!product) {
+		return <div className={styles.product_page}>Product not found.</div>
+	}
+
 	return (
 		<div className={styles.product_page}>
 			<div className={styles.content}>
