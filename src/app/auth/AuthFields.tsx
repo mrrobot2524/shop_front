@@ -12,7 +12,7 @@ import { validEmail } from '@/shared/regex'
 import { IAuthForm } from '@/shared/types/auth.interface'
 
 interface AuthFieldsProps {
-	form: UseFormReturn<IAuthForm, any, undefined>
+	form: UseFormReturn<IAuthForm>
 	isPending: boolean
 	isReg?: boolean
 }
